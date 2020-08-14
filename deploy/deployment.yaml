@@ -1,0 +1,23 @@
+apiVersion: "apps/v1"
+kind: Deployment
+metadata:
+  name: "gosampleapi"
+  labels:
+      app: "gosampleapi"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: "gosampleapi"
+  template:
+    metadata:
+      labels:
+        app: "gosampleapi"
+    spec:
+      containers:
+        - name: "gosampleapi"
+          image: gosampleapi081320
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 9000
+
